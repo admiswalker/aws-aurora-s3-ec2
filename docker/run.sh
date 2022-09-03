@@ -1,6 +1,7 @@
 #!/bin/sh
 
 SCRIPT_DIR=`cd $(dirname ${BASH_SOURCE:-$0}); pwd`
+rm -rf $SCRIPT_DIR/../$USER
 
 docker run \
        -u `id -u`:`id -g` \
@@ -14,6 +15,8 @@ docker run \
        -v ~/.ssh:/home/$USER/.ssh \
        -v ~/.gitconfig:/home/$USER/.gitconfig \
        -v $SCRIPT_DIR/usr/.bashrc:/home/$USER/.bashrc \
+       --net=host \
        --env AWS_ACCESS_KEY_ID --env AWS_SECRET_ACCESS_KEY --env AWS_SESSION_TOKEN \
        docker_aws_cdk_env:latest bash
 
+rm -rf $SCRIPT_DIR/../$USER

@@ -41,6 +41,16 @@ npx cdk deploy all --require-approval never
 npx cdk destroy
 npx cdk destroy --force
 ```
+### ssh to EC2
+ssh port forwarding
+```
+EC2_INSTANCE_ID=$(aws ec2 describe-instances \
+    --filters "Name=tag:Name,Values=AwsSsmEc2MysqlStack/ec2_ssm" \
+    --query "Reservations[].Instances[?State.Name=='running'].InstanceId[]" \
+    --output text)
+RDB_ENDPOINT=$(aws rds describe-db-instances | jq '.DBInstances[] | [.Endpoint, .TagList, .Key == "AwsSsmEc2MysqlStack" ]' | grep "Address" | cut -d '"' -f 4)
+ssh -i ~/.ssh/ec2/id_ed25519 admis@$EC2_INSTANCE_ID -L 3306:$RDB_ENDPOINT:3306
+```
 
 
 

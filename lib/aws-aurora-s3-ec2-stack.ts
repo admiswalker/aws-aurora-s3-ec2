@@ -39,6 +39,15 @@ export class AwsSsmEc2MysqlStack extends Stack {
         },
       ],
     });
+    vpc.addInterfaceEndpoint('InterfaceEndpoint_ssm', {
+      service: ec2.InterfaceVpcEndpointAwsService.SSM,
+    });
+    vpc.addInterfaceEndpoint('InterfaceEndpoint_ec2messages', {
+      service: ec2.InterfaceVpcEndpointAwsService.EC2_MESSAGES,
+    });
+    vpc.addInterfaceEndpoint('InterfaceEndpoint_ssmmessages', {
+      service: ec2.InterfaceVpcEndpointAwsService.SSM_MESSAGES,
+    });
 
     const cloud_config = ec2.UserData.forLinux({shebang: ''})
     const user_data_script = fs.readFileSync('./lib/user-data.yaml', 'utf8');
@@ -96,3 +105,4 @@ export class AwsSsmEc2MysqlStack extends Stack {
 // - [セッションマネージャー over SSH 経由でプライベートサブネット内のRDSへ接続する方法](https://qiita.com/syoimin/items/eb6d4d9e01f460623531)
 // - [AWS CDKでRDSのパスワードを自動生成してコード内で利用する](https://dev.classmethod.jp/articles/automatically-generate-a-password-with-cdk/)
 // - [Amazon EC2 でウェブアプリケーションをデプロイする](https://aws.amazon.com/jp/getting-started/guides/deploy-webapp-ec2/module-one/)
+// - [[小ネタ] プライベートサブネットのインスタンスにAWS Systems Manager セッションマネージャーでSSHしてみたくなって](https://dev.classmethod.jp/articles/private-subnet-instance-ssm-ssh/)
