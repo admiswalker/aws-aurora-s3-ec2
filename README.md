@@ -7,26 +7,41 @@
 ```
 ### usual commands
 #### Static analysis
-```
+```bash
 npx cdk synth
 ```
 #### install npm package
 - install by package.json
-  ```
+  ```bash
   npx npm i
   ```
 - install by package-lock.json
-  ```
+  ```bash
   npx npm ci
   ```
 - install by <package-name>
-  ```
+  ```bash
   npx npm i <package-name>
   ```
   example:
-  ```
+  ```bash
   npx npm i @aws-cdk/core
   ```
+#### bootstrap
+```bash
+npx cdk bootstrap
+```
+#### deploy
+```bash
+npx cdk deploy all
+npx cdk deploy all --require-approval never
+```bash
+#### destroy
+```
+npx cdk destroy
+npx cdk destroy --force
+```
+
 
 
 ## init

@@ -7,6 +7,8 @@ docker run \
        -v /etc/sudoers.d:/etc/sudoers.d:ro \
        --rm -it --name docker_aws_cdk_env \
        -v $PWD:/home -w /home \
+       -v ~/.aws:/home/$USER/.aws \
+       -v ~/.ssh:/home/$USER/.ssh \
        --env AWS_ACCESS_KEY_ID --env AWS_SECRET_ACCESS_KEY --env AWS_SESSION_TOKEN \
        docker_aws_cdk_env:latest bash
 
