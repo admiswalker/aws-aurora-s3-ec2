@@ -102,7 +102,9 @@ export class AwsSsmEc2MysqlStack extends Stack {
 }
 
 // memo:
-// - [セッションマネージャー over SSH 経由でプライベートサブネット内のRDSへ接続する方法](https://qiita.com/syoimin/items/eb6d4d9e01f460623531)
+// - ssm
+//   - [セッションマネージャー over SSH 経由でプライベートサブネット内のRDSへ接続する方法](https://qiita.com/syoimin/items/eb6d4d9e01f460623531)
+//   - [セッションマネージャーを利用してローカル PC と プライベートサブネットにある EC2 間でデータ転送したときのデータ転送料を調べてみた](https://dev.classmethod.jp/articles/session-manager-data-transfer-fees/)
+//   - [[小ネタ] プライベートサブネットのインスタンスにAWS Systems Manager セッションマネージャーでSSHしてみたくなって](https://dev.classmethod.jp/articles/private-subnet-instance-ssm-ssh/)
 // - [AWS CDKでRDSのパスワードを自動生成してコード内で利用する](https://dev.classmethod.jp/articles/automatically-generate-a-password-with-cdk/)
 // - [Amazon EC2 でウェブアプリケーションをデプロイする](https://aws.amazon.com/jp/getting-started/guides/deploy-webapp-ec2/module-one/)
-// - [[小ネタ] プライベートサブネットのインスタンスにAWS Systems Manager セッションマネージャーでSSHしてみたくなって](https://dev.classmethod.jp/articles/private-subnet-instance-ssm-ssh/)
