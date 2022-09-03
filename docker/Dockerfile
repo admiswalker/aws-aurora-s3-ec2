@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     tar \
     git \
+    bash-completion \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
