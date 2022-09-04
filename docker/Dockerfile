@@ -21,6 +21,7 @@ RUN curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubunt
  && apt-get install ./session-manager-plugin.deb \
  && rm session-manager-plugin.deb
 
+# install `nodejs`
 ENV NODE_DL_URL https://nodejs.org/download/release/v18.8.0/node-v18.8.0-linux-x64.tar.gz
 ENV NODE_FILE_NAME node-v18.8.0-linux-x64.tar.gz
 RUN curl -SLO ${NODE_DL_URL} \
