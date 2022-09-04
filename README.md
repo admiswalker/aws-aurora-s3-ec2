@@ -35,15 +35,15 @@ npx cdk bootstrap
 ```bash
 npx cdk deploy all
 npx cdk deploy all --require-approval never
-```bash
-#### destroy
 ```
+#### destroy
+```bash
 npx cdk destroy
 npx cdk destroy --force
 ```
 ### ssh to EC2
 ssh port forwarding
-```
+```bash
 EC2_INSTANCE_ID=$(aws ec2 describe-instances \
     --filters "Name=tag:Name,Values=AwsSsmEc2MysqlStack/ec2_ssm" \
     --query "Reservations[].Instances[?State.Name=='running'].InstanceId[]" \
